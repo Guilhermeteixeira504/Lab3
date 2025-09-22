@@ -10,16 +10,6 @@ public class Museu {
 		obras = new ArrayList<Obra>();
 	}
 	
-	//pesquisar obra
-	public Obra pesquisarObra(String t, String a) {
-		for(Obra obra : obras) {
-			if(obra.getAutor().equalsIgnoreCase(a) && obra.getTitulo().equalsIgnoreCase(t)) {
-				return obra;
-			}
-		}
-		return null;
-	}
-	
 
 	//registar obra
 	public void registarObra(Obra obra) {
