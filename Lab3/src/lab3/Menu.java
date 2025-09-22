@@ -10,7 +10,7 @@ public class Menu {
 		int opcao=0;
 		
 		do {
-			System.out.println("Menu:");
+			System.out.println("\n Menu:");
 			System.out.println("1- Registar obra");
 			System.out.println("2- Imprimir todos os detalhes de todas as obras");
 			System.out.println("3- Pesquisar obra pelo título");
@@ -27,23 +27,53 @@ public class Menu {
 				String autor = ler.next();
 				System.out.println("Ano da obra: ");
 				int ano = ler.nextInt();
-				museu.registarObra(titulo, autor, ano);
+				System.out.println("Tipo de obra (Pintura, Escultura): ");
+				String tipo = ler.next();
+				
+				if(tipo.equalsIgnoreCase("Pintura")) {
+					System.out.println("Técnica: ");
+					String tecnica = ler.next();
+					if(tecnica.equalsIgnoreCase("Óleo")) {
+						System.out.println("Tipo de tela: ");
+						String tipotela = ler.next();
+						Obra obra1 = new PinturaOleo(titulo,autor, ano, tipotela);
+						museu.registarObra(obra1);
+					}
+					else {
+						Obra obra = new Pintura(titulo,autor,ano, tecnica);
+						museu.registarObra(obra);
+					}
+				}
+				else if(tipo.equalsIgnoreCase("Escultura")) {
+					System.out.println("Material: ");
+					String material = ler.next();
+					Obra obra = new Escultura(titulo,autor,ano, material);
+					museu.registarObra(obra);
+				}
+				else {
+					System.out.println("Tipo de obra inválido");
+				}
+				
 				break;
 				
 			case 2:
-				
+				museu.imprimirObras();
 				break;
 				
 			case 3:
-				
+				System.out.println("Título da obra: ");
+				String titulo1 = ler.next();
+				museu.pesquisarTitulo(titulo1);
 				break;
 				
 			case 4:
-				
+				System.out.println("Tipo de tela: ");
+				String tipoTela = ler.next();
+				museu.imprimirPorTipoTela(tipoTela);
 				break;
 				
 			case 5:
-				
+				museu.imprimirPorTipo();
 				break;
 				
 			case 0:

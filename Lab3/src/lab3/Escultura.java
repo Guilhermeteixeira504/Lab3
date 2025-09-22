@@ -12,6 +12,11 @@ class Escultura extends Obra {
 	public String getMaterial() {
 		return material;
 	}
+
+	@Override
+	public String toString() {
+		return "Escultura:" + getTitulo() +", "+ getAutor() +", "+ getAno() +", "+ material;
+	}
 	
 	
 

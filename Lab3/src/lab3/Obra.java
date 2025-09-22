@@ -32,6 +32,5 @@ public class Obra {
 		return "Obra [titulo=" + titulo + ", autor=" + autor + ", ano=" + ano + "]";
 	}
 	
-	
 
 }

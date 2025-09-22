@@ -12,6 +12,10 @@ class Pintura extends Obra {
 	public String getTecnica() {
 		return tecnica;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Pintura: "+ getTitulo() +", "+ getAutor() +", "+ getAno() +", "+ tecnica;
+	}
 	
 }
